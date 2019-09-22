@@ -4,7 +4,7 @@
   "description": "Optical Character Recognition",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/AlexanderDesmond/OCR/issues"
   },
-  "homepage": "https://github.com/AlexanderDesmond/OCR#readme"
+  "homepage": "https://github.com/AlexanderDesmond/OCR#readme",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "tesseract.js": "^1.0.19"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
 }
