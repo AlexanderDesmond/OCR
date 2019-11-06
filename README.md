@@ -7,4 +7,4 @@ Outputs as PDF.
 
 Frameworks: Node.js, Express.js
 
-Language: TypeScript
+Language: JavaScript
