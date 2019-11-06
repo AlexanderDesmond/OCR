@@ -4,7 +4,7 @@
   "description": "Optical Character Recognition",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./build/app.js",
+    "start": "nodemon ./app/app.js",
     "tsc": "tsc"
   },
   "repository": {
@@ -24,13 +24,13 @@
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "multer": "^1.4.2",
-    "tesseract.js": "^1.0.19",
+    "tesseract.js": "^2.0.0-beta.2",
     "tesseract.ts": "^1.1.2",
     "typescript": "^3.6.3"
   },
   "devDependencies": {
     "@types/express": "^4.17.1",
     "@types/node": "^12.7.5",
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.4"
   }
 }
