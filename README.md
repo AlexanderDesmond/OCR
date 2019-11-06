@@ -1,10 +1,8 @@
 # OCR
 
-Optical Character Recognition
+## Optical Character Recognition
 
-Reads letters from images.
-Outputs as PDF.
+Reads characters from an image and outputs the resulting text as a PDF.
 
-Frameworks: Node.js, Express.js
-
-Language: JavaScript
+** Frameworks: ** Node.js, Express.js
+** Language: ** JavaScript
