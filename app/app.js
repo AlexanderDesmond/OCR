@@ -31,6 +31,29 @@ app.get("/uploads", (req, res) => {
 app.post("/uploads", (req, res) => {
   upload(req, res, err => {
     console.log(req.file);
+    /*
+    fs.readFile(`./uploads/${req.file.originalname}`, (err, data) => {
+      if (err) console.log("Error:", err);
+    });
+    */
+
+    (async () => {
+      await worker.load();
+      await worker.loadLanguage("eng");
+      await worker.initialize("eng");
+      const {
+        data: { text }
+      } = await worker.recognize(
+        //"https://tesseract.projectnaptha.com/img/eng_bw.png"
+        `./uploads/${req.file.originalname}`
+      );
+      console.log(`./uploads/${req.file.originalname}`);
+      console.log(text);
+      const { data } = await worker.getPDF("Tesseract OCR Result");
+      fs.writeFileSync("tesseract-ocr-result.pdf", Buffer.from(data));
+      console.log("Generate PDF: tesseract-ocr-result.pdf");
+      await worker.terminate();
+    })();
   });
 });
 
