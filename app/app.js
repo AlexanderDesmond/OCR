@@ -28,7 +28,7 @@ app.get("/uploads", (req, res) => {
   console.log("uploding...");
 });
 
-app.post("/upload", (req, res) => {
+app.post("/uploads", (req, res) => {
   upload(req, res, err => {
     console.log(req.file);
   });
