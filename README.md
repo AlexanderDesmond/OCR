@@ -2,7 +2,7 @@
 
 ## Optical Character Recognition
 
-Reads characters from an image and outputs the resulting text as a PDF.
+Reads characters from an image, then transforms the image into a PDF so the characters are selectable.
 
 **Language:** JavaScript
 <br />
