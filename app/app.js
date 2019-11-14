@@ -8,6 +8,7 @@ const worker = createWorker({
   logger: m => console.log(m)
 });
 
+// Initialise storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./uploads");
@@ -19,6 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }).single("image");
 
+// Initialise ejs template
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.get("/", (req, res) => {
@@ -29,10 +31,13 @@ app.get("/uploads", (req, res) => {
   console.log("uploding...");
 });
 
+// Handle uploading of image and character recognition
 app.post("/uploads", (req, res) => {
   upload(req, res, err => {
     console.log(req.file);
 
+    // Use tesseract.js to recognise the characters in the image
+    // and create a PDF version of the image with selctable text
     (async () => {
       await worker.load();
       await worker.loadLanguage("eng");
@@ -53,6 +58,7 @@ app.post("/uploads", (req, res) => {
   });
 });
 
+// Download PDF of image with selectable text
 app.get("/downloads", (req, res) => {
   const file = "downloads/tesseract-ocr-result.pdf";
   res.download(file);
